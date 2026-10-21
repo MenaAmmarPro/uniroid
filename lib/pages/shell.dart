@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 
 import "../theme.dart";
-import "home_page.dart" show SectionPlaceholder;
+import "countdown_page.dart";
+import "home_page.dart";
 
 /// Uniroid shell: bottom navigation with the top-level sections.
 class Shell extends StatefulWidget {
@@ -16,9 +17,14 @@ class _ShellState extends State<Shell> {
 
   /// Opens a named section from the home grid (or any tile).
   void _open(String id) {
+    if (id == "countdown") {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute<void>(builder: (_) => const CountdownPage()));
+      return;
+    }
     setState(() {
       switch (id) {
-        case "countdown":
         case "reasons":
         case "diary":
         case "mood":
