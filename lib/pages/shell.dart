@@ -18,7 +18,7 @@ class _ShellState extends State<Shell> {
   /// Opens a named section from the home grid (or any tile).
   void _open(String id) {
     // Tools push as their own pages.
-    if (id == "countdown" || id == "calculator") {
+    if (id == "countdown" || id == "calculator" || id == "diary") {
       pushTool(context, id);
       return;
     }

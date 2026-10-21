@@ -23,20 +23,20 @@ class DiaryEntry {
   final String updatedAt;
 
   factory DiaryEntry.fromJson(Map<String, dynamic> j) => DiaryEntry(
-        day: (j["day"] ?? "").toString(),
-        prompt: (j["prompt"] ?? "").toString(),
-        mood: (j["mood"] ?? "").toString(),
-        text: (j["text"] ?? "").toString(),
-        updatedAt: (j["updatedAt"] ?? "").toString(),
-      );
+    day: (j["day"] ?? "").toString(),
+    prompt: (j["prompt"] ?? "").toString(),
+    mood: (j["mood"] ?? "").toString(),
+    text: (j["text"] ?? "").toString(),
+    updatedAt: (j["updatedAt"] ?? "").toString(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "day": day,
-        "prompt": prompt,
-        "mood": mood,
-        "text": text,
-        "updatedAt": updatedAt,
-      };
+    "day": day,
+    "prompt": prompt,
+    "mood": mood,
+    "text": text,
+    "updatedAt": updatedAt,
+  };
 
   DiaryEntry copyWith({String? mood, String? text, String? updatedAt}) =>
       DiaryEntry(
@@ -66,10 +66,7 @@ class DiaryMath {
   }
 
   /// [entries] is newest-first; finds the entry for [iso], if any.
-  static DiaryEntry? entryForDay(
-    List<DiaryEntry> entries,
-    String iso,
-  ) {
+  static DiaryEntry? entryForDay(List<DiaryEntry> entries, String iso) {
     for (final e in entries) {
       if (e.day == iso) return e;
     }

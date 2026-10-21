@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "../theme.dart";
 import "calculator_page.dart";
 import "countdown_page.dart";
+import "diary_page.dart";
 
 /// Tools tab: a task list of little everyday helpers.
 class ToolsPage extends StatelessWidget {
@@ -23,6 +24,7 @@ class ToolsPage extends StatelessWidget {
       Icons.calculate_outlined,
       "quick little sums",
     ),
+    _Tool("diary", "Our Diary", Icons.menu_book, "one line a day"),
   ];
 
   @override
@@ -65,6 +67,8 @@ void pushTool(BuildContext context, String id) {
       page = const CountdownPage();
     case "calculator":
       page = const CalculatorPage();
+    case "diary":
+      page = const DiaryPage();
     default:
       return;
   }
