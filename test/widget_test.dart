@@ -1,30 +1,28 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:uniroid/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Uniroid shell renders home with four tabs', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const UniroidApp(initialDark: true));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Home grid should show on first launch.
+    expect(find.text('Uniroid'), findsOneWidget);
+    expect(find.text('Our Countdown'), findsOneWidget);
+    expect(find.text('65 Reasons'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // The four tabs exist in the navigation bar.
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('Tools'), findsOneWidget);
+    expect(find.text('Games'), findsOneWidget);
+    expect(find.text('Us'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Tapping "Games" shows a placeholder until the arcade lands.
+    await tester.tap(find.text('Games'));
+    await tester.pumpAndSettle();
+    expect(find.text('Arcade — coming next'), findsOneWidget);
   });
 }
