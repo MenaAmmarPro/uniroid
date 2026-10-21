@@ -57,7 +57,8 @@ void main() {
 
     test("fractions trim trailing zeros", () {
       expect(CalculatorMath.format(0.5), "0.5");
-      expect(CalculatorMath.format(1.2000000001), "1.2");
+      // float noise: 1.2 + tiny epsilon → rounds away at 10 decimals
+      expect(CalculatorMath.format(1.2 + 1e-12), "1.2");
     });
 
     test("infinity shows symbol", () {
