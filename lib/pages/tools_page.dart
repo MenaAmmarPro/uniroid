@@ -2,8 +2,11 @@ import "package:flutter/material.dart";
 
 import "../theme.dart";
 import "calculator_page.dart";
+import "checklist_page.dart";
 import "countdown_page.dart";
 import "diary_page.dart";
+import "mood_page.dart";
+import "reasons_page.dart";
 
 /// Tools tab: a task list of little everyday helpers.
 class ToolsPage extends StatelessWidget {
@@ -25,6 +28,9 @@ class ToolsPage extends StatelessWidget {
       "quick little sums",
     ),
     _Tool("diary", "Our Diary", Icons.menu_book, "one line a day"),
+    _Tool("checklist", "Checklist", Icons.checklist, "tick things off"),
+    _Tool("mood", "How are you?", Icons.mood, "a gentle check-in"),
+    _Tool("reasons", "65 Reasons", Icons.auto_awesome, "a reason every day"),
   ];
 
   @override
@@ -69,6 +75,12 @@ void pushTool(BuildContext context, String id) {
       page = const CalculatorPage();
     case "diary":
       page = const DiaryPage();
+    case "checklist":
+      page = const ChecklistPage();
+    case "mood":
+      page = const MoodPage();
+    case "reasons":
+      page = const ReasonsPage();
     default:
       return;
   }
