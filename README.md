@@ -1,17 +1,48 @@
-# uniroid
+# Uniroid 💕
 
-A new Flutter project.
+A little universal app for **Mena** — daily tools, offline games and "us"
+content, in one Android app. Built as part of
+[MenaAmmarPro](https://github.com/MenaAmmarPro), the little world of love
+projects.
 
-## Getting Started
+## What's inside
 
-This project is a starting point for a Flutter application.
+**Tools**
+- **Our Countdown** — days together, milestones, a date picker for "when did it all begin"
+- **Calculator** — quick sums with parentheses and precedence
+- **Our Diary** — one entry a day, date-seeded prompts, moods, streaks
+- **Checklist** — everyday lists with progress
+- **How are you?** — a gentle mood check-in with a two-week strip
 
-A few resources to get you started if this is your first Flutter project:
+**Arcade (all offline)**
+- **Memory Match** — find the emoji pairs
+- **Our Quiz** — 8 questions about "us"
+- **2048** — slide, merge, keep going
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+**Us**
+- **Memory Jar** — draw a random memory
+- **Our Story** — five little chapters of how it began
+- **65 Reasons** — a reason a day + the whole list + favourites
+- Dark/light switch (her favourite is white, dark mode is there too)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Everything runs **fully offline** — content is baked into the app and state
+lives in `shared_preferences` on the device. Nothing leaves the phone.
+
+## Build
+
+```bash
+flutter pub get
+flutter test          # logic suites + shell smoke test
+flutter build apk     # release APK in build/app/outputs/
+```
+
+## Tech notes
+
+- Flutter 3.x, Material 3, white-forward pink theme (`lib/theme.dart`)
+- Pure game/tool logic lives in `lib/tools/*_logic.dart` and
+  `lib/games/*_logic.dart` — fully unit-tested (`test/`)
+- Pages under `lib/pages/`, shell navigation with push-per-feature
+
+---
+
+Made with 💖 — *different skies, same stars.*
