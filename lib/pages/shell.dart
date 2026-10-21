@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 
 import "../theme.dart";
-import "countdown_page.dart";
 import "home_page.dart";
+import "tools_page.dart";
 
 /// Uniroid shell: bottom navigation with the top-level sections.
 class Shell extends StatefulWidget {
@@ -17,10 +17,9 @@ class _ShellState extends State<Shell> {
 
   /// Opens a named section from the home grid (or any tile).
   void _open(String id) {
-    if (id == "countdown") {
-      Navigator.of(
-        context,
-      ).push(MaterialPageRoute<void>(builder: (_) => const CountdownPage()));
+    // Tools push as their own pages.
+    if (id == "countdown" || id == "calculator") {
+      pushTool(context, id);
       return;
     }
     setState(() {
@@ -42,7 +41,7 @@ class _ShellState extends State<Shell> {
   Widget build(BuildContext context) {
     final pages = <Widget>[
       HomePage(onOpen: _open),
-      const SectionPlaceholder(title: "Tools", id: "tools"),
+      ToolsPage(onOpen: _open),
       const SectionPlaceholder(title: "Arcade", id: "games"),
       const SectionPlaceholder(title: "Us", id: "us"),
     ];
