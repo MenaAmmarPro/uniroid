@@ -18,11 +18,13 @@ class UniroidApp extends StatefulWidget {
   final bool initialDark;
 
   @override
-  State<UniroidApp> createState() => _UniroidAppState();
+  UniroidAppState createState() => UniroidAppState();
 }
 
-class _UniroidAppState extends State<UniroidApp> {
+class UniroidAppState extends State<UniroidApp> {
   late bool _dark = widget.initialDark;
+
+  bool get isDark => _dark;
 
   /// Toggles dark/light and remembers the choice.
   Future<void> setDark(bool dark) async {

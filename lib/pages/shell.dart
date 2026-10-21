@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 
 import "../theme.dart";
+import "games_page.dart";
 import "home_page.dart";
 import "tools_page.dart";
+import "us_page.dart";
 
 /// Uniroid shell: bottom navigation with the top-level sections.
 class Shell extends StatefulWidget {
@@ -18,8 +20,21 @@ class _ShellState extends State<Shell> {
   /// Opens a named section from the home grid (or any tile).
   void _open(String id) {
     // Tools push as their own pages.
-    if (id == "countdown" || id == "calculator" || id == "diary") {
+    const pushable = {
+      "countdown",
+      "calculator",
+      "diary",
+      "checklist",
+      "mood",
+      "reasons",
+    };
+    if (pushable.contains(id)) {
       pushTool(context, id);
+      return;
+    }
+    // Story is a "Us" page but pushes directly from the home grid.
+    if (id == "story" || id == "memory-jar") {
+      pushUs(context, id);
       return;
     }
     setState(() {
@@ -30,7 +45,9 @@ class _ShellState extends State<Shell> {
         case "story":
           _tab = 3; // "Us" holds them all while built step by step.
           break;
-        case "games":
+        case "memory":
+        case "quiz":
+        case "2048":
           _tab = 2;
           break;
       }
@@ -42,8 +59,8 @@ class _ShellState extends State<Shell> {
     final pages = <Widget>[
       HomePage(onOpen: _open),
       ToolsPage(onOpen: _open),
-      const SectionPlaceholder(title: "Arcade", id: "games"),
-      const SectionPlaceholder(title: "Us", id: "us"),
+      GamesPage(onOpen: _open),
+      UsPage(onOpen: _open),
     ];
 
     return Scaffold(

@@ -20,9 +20,10 @@ void main() {
     expect(find.text('Games'), findsOneWidget);
     expect(find.text('Us'), findsOneWidget);
 
-    // Tapping "Games" shows a placeholder until the arcade lands.
+    // Tapping "Games" shows the arcade list.
     await tester.tap(find.text('Games'));
     await tester.pumpAndSettle();
-    expect(find.text('Arcade — coming next'), findsOneWidget);
+    expect(find.text('Memory Match'), findsOneWidget);
+    expect(find.text('2048'), findsOneWidget);
   });
 }
