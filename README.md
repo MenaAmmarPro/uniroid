@@ -1,5 +1,6 @@
-# Uniroid 💕
+# Uniroid 💗
 
+[![Build & Release](https://github.com/MenaAmmarPro/uniroid/actions/workflows/build.yml/badge.svg)](https://github.com/MenaAmmarPro/uniroid/actions/workflows/build.yml)
 A little universal app for **Mena** — daily tools, offline games and "us"
 content, in one Android app. Built as part of
 [MenaAmmarPro](https://github.com/MenaAmmarPro), the little world of love
