@@ -1,0 +1,4 @@
+# Force LF for shell scripts so Linux CI never gets CRLF line endings
+gradlew text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
