@@ -1,0 +1,15 @@
+{
+  "app": "Uniroid",
+  "org": "MenaAmmarPro",
+  "repo": "https://github.com/MenaAmmarPro/uniroid",
+  "latestVersion": "1.0.0",
+  "install": "https://github.com/MenaAmmarPro/uniroid/releases/latest/download/app-release.apk",
+  "releases": [
+    {
+      "version": "1.0.0",
+      "title": "Uniroid is here! 💗",
+      "date": "2026-10-23",
+      "notes": "Our first release: daily tools (countdown, calculator, diary, checklist, mood), arcade games (memory match, quiz, 2048) and our story — everything works offline."
+    }
+  ]
+}
