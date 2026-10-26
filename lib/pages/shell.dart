@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
 import "../theme.dart";
-import "../updater.dart";
 import "games_page.dart";
 import "home_page.dart";
 import "tools_page.dart";
@@ -17,22 +16,6 @@ class Shell extends StatefulWidget {
 
 class _ShellState extends State<Shell> {
   int _tab = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _checkUpdate();
-  }
-
-  Future<void> _checkUpdate() async {
-    try {
-      final latest = await Updater.latestVersion();
-      if (latest == null || latest == '1.2.0') return;
-      final file = await Updater.downloadApk(
-          'https://github.com/MenaAmmarPro/uniroid/releases/latest/download/app-release.apk');
-      await Updater.install(file);
-    } catch (_) {}
-  }
 
   /// Opens a named section from the home grid (or any tile).
   void _open(String id) {
