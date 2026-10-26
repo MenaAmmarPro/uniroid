@@ -27,7 +27,7 @@ class _ShellState extends State<Shell> {
   Future<void> _checkUpdate() async {
     try {
       final latest = await Updater.latestVersion();
-      if (latest == null || latest == '1.1.0') return;
+      if (latest == null || latest == '1.2.0') return;
       final file = await Updater.downloadApk(
           'https://github.com/MenaAmmarPro/uniroid/releases/latest/download/app-release.apk');
       await Updater.install(file);
