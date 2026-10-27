@@ -22,7 +22,7 @@ jobs:
     name: Static analysis (non-gating)
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    continue-on-error: false
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
