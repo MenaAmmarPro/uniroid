@@ -37,7 +37,21 @@ flutter test          # logic suites + shell smoke test
 flutter build apk     # release APK in build/app/outputs/
 ```
 
-## Tech notes
+## Pre-push testing
+
+Run the full sandbox before pushing:
+
+```powershell
+powershell -File tools/preflight.ps1
+```
+
+Install the git pre-push hook (optional):
+
+```powershell
+powershell -File tools/install-hooks.ps1
+```
+
+Bypass with `git push --no-verify`.
 
 - Flutter 3.x, Material 3, white-forward pink theme (`lib/theme.dart`)
 - Pure game/tool logic lives in `lib/tools/*_logic.dart` and

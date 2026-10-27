@@ -1,0 +1,3 @@
+#!/bin/sh
+pwsh -File tools/preflight.ps1
+exit $?
